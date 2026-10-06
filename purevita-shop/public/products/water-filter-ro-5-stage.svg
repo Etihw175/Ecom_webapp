@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="เครื่องกรองน้ำ RO 5 ขั้นตอน">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F3FBFE"/>
+      <stop offset="1" stop-color="#7FD8F5" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <circle cx="300" cy="290" r="190" fill="#fff" opacity="0.65"/>
+  
+  <rect x="180" y="160" width="240" height="40" rx="10" fill="#06345E"/>
+  <rect x="200" y="200" width="60" height="220" rx="16" fill="#fff" stroke="#06345E" stroke-width="6"/>
+  <rect x="270" y="200" width="60" height="220" rx="16" fill="#06345E"/>
+  <rect x="340" y="200" width="60" height="220" rx="16" fill="#fff" stroke="#06345E" stroke-width="6"/>
+  <path d="M300 120 c0 0 -18 22 -18 32 a18 18 0 0 0 36 0 c0 -10 -18 -32 -18 -32z" fill="#7FD8F5"/>
+  <rect x="0" y="480" width="600" height="120" fill="#06345E"/>
+  <text x="300" y="530" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="2" fill="#fff">RO 5-STAGE</text>
+  <text x="300" y="570" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#7FD8F5">PureVita · เพียววิต้า</text>
+</svg>

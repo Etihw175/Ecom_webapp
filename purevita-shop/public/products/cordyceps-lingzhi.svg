@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="ถั่งเช่าผสมเห็ดหลินจือ (60 แคปซูล)">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F3FBFE"/>
+      <stop offset="1" stop-color="#7FD8F5" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <circle cx="300" cy="290" r="190" fill="#fff" opacity="0.65"/>
+  
+  <path d="M180 290 C 180 190 420 190 420 290 Z" fill="#8B3A1E"/>
+  <circle cx="250" cy="250" r="14" fill="#fff" opacity="0.7"/>
+  <circle cx="330" cy="235" r="10" fill="#fff" opacity="0.7"/>
+  <circle cx="370" cy="270" r="8" fill="#fff" opacity="0.7"/>
+  <path d="M265 290 h70 l12 140 h-94 z" fill="#F4E3C3" stroke="#8B3A1E" stroke-width="5"/>
+  <rect x="0" y="480" width="600" height="120" fill="#06345E"/>
+  <text x="300" y="530" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="2" fill="#fff">CORDYCEPS + LINGZHI</text>
+  <text x="300" y="570" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#7FD8F5">PureVita · เพียววิต้า</text>
+</svg>

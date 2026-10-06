@@ -1,0 +1,101 @@
+// PureVita Shop — Prisma schema (SQLite)
+// SQLite has no enums: role/status/paymentMethod are Strings; allowed values in src/lib/constants.ts
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         String    @default("CUSTOMER") // "CUSTOMER" | "ADMIN"
+  addresses    Address[]
+  orders       Order[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Address {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipientName String
+  phone         String
+  line          String
+  province      String
+  postalCode    String
+  isDefault     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String
+  slug      String    @unique
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id                String      @id @default(cuid())
+  name              String
+  slug              String      @unique
+  description       String
+  price             Int // THB, whole baht
+  imageUrl          String
+  stock             Int         @default(0)
+  lowStockThreshold Int         @default(5)
+  isActive          Boolean     @default(true)
+  categoryId        String
+  category          Category    @relation(fields: [categoryId], references: [id])
+  orderItems        OrderItem[]
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  @@index([categoryId])
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  orderNo         String      @unique
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  status          String      @default("PENDING") // PENDING | PAID | PACKING | SHIPPED | DELIVERED | CANCELLED
+  subtotal        Int
+  shippingFee     Int
+  total           Int
+  paymentMethod   String // "TRANSFER" | "COD"
+  addressSnapshot String // JSON string: { recipientName, phone, line, province, postalCode }
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id            String  @id @default(cuid())
+  orderId       String
+  order         Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId     String
+  product       Product @relation(fields: [productId], references: [id])
+  nameSnapshot  String
+  priceSnapshot Int
+  qty           Int
+
+  @@index([orderId])
+  @@index([productId])
+}
